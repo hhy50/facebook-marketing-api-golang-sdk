@@ -239,11 +239,14 @@ func (ir *InsightsRequest) generateReportDirect(ctx context.Context, c chan<- In
 // Insight contains insight data for an facebook graph API object, broken down by the desired day.
 type Insight struct {
 	AccountID                        string                 `json:"account_id"`
+	AccountName                      string                 `json:"account_name"`
 	Actions                          ActionTypeValue        `json:"actions"`
+	UniqueActions                    ActionTypeValue        `json:"unique_actions"`
 	AdsetID                          string                 `json:"adset_id"`
 	AdID                             string                 `json:"ad_id"`
 	Objective                        string                 `json:"objective"`
 	AdsetName                        string                 `json:"adset_name"`
+	AdName                           string                 `json:"ad_name"`
 	Age                              string                 `json:"age"`
 	CampaignID                       string                 `json:"campaign_id"`
 	CampaignName                     string                 `json:"campaign_name"`
@@ -257,6 +260,19 @@ type Insight struct {
 	Impressions                      uint64                 `json:"impressions,string"`
 	Reach                            float64                `json:"reach,string"`
 	Spend                            float64                `json:"spend,string"`
+	Cpc                              float64                `json:"cpc,string"`
+	Cpp                              float64                `json:"cpp,string"`
+	Cpm                              float64                `json:"cpm,string"`
+	Ctr                              float64                `json:"ctr,string"`
+	InlineLinkClicks                 uint64                 `json:"inline_link_clicks,string"`
+	UniqueClicks                     uint64                 `json:"unique_clicks,string"`
+	UniqueInlineLinkClicks           uint64                 `json:"unique_inline_link_clicks,string"`
+	UniqueCtr                        float64                `json:"unique_ctr,string"`
+	OutboundClicks                   ActionTypeValue        `json:"outbound_clicks"`
+	UniqueOutboundClicks             ActionTypeValue        `json:"unique_outbound_clicks"`
+	OutboundClicksCtr                ActionTypeValue        `json:"outbound_clicks_ctr"`
+	UniqueOutboundClicksCtr          ActionTypeValue        `json:"unique_outbound_clicks_ctr"`
+	PurchaseRoas                     ActionTypeValue        `json:"purchase_roas"`
 	VideoContinues2SecWatchedActions ActionTypeValue        `json:"video_continuous_2_sec_watched_actions"`
 	Video15SecWatchedActions         ActionTypeValue        `json:"video_15_sec_watched_actions"`
 	VideoThruplayWatchedActions      ActionTypeValue        `json:"video_thruplay_watched_actions"`
@@ -268,6 +284,7 @@ type Insight struct {
 	VideoP75WatchedActions           ActionTypeValue        `json:"video_p75_watched_actions"`
 	VideoP95WatchedActions           ActionTypeValue        `json:"video_p95_watched_actions"`
 	VideoPlayActions                 ActionTypeValue        `json:"video_play_actions"`
+	WebsitePurchaseRoas              ActionTypeValue        `json:"website_purchase_roas"`
 	InteractiveComponentTap          []InteractiveComponent `json:"interactive_component_tap"`
 	DeviceType                       string                 `json:"impression_device"`
 	Region                           string                 `json:"region"`
